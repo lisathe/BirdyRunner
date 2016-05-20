@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float jumpForce;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
 	}

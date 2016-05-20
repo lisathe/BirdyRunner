@@ -6,6 +6,7 @@ public class ScoreSystem : MonoBehaviour {
 
 	public Text scoreText;
 
+
 	int totalPoints;
 	int points;
 	static ScoreSystem _instance;
@@ -36,11 +37,16 @@ public class ScoreSystem : MonoBehaviour {
 	public void AddScore()
 	{
 		totalPoints += points;
-		SetScoreText ();
+		SetScoreText (scoreText);
 	}
 
-	public void SetScoreText()
+	public void SetScoreText(Text scoreText)
 	{
 		scoreText.text = "Score: " + totalPoints.ToString();
+	}
+		
+	public void ResetScore()
+	{
+		totalPoints = 0;
 	}
 }
