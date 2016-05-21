@@ -22,6 +22,5 @@ public class ScrollingBackground : MonoBehaviour {
 		//Moving horizontally
 		Vector2 offset = new Vector2 (Time.time * scrollSpeed, 0);
 		rend.material.mainTextureOffset = offset;
-
 	}
 }
