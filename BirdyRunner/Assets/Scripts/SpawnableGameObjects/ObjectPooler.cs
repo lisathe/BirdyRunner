@@ -5,18 +5,18 @@ using System.Collections.Generic;
 public class ObjectPooler : MonoBehaviour {
 
 	public GameObject pooledObject;
-
 	public int pooledAmount;
 
 	List<GameObject> pooledObjects;
 
-	// Use this for initialization
+	//Creates list of pooled objects and fills the list until it meets the pooledAmount
 	void Start () {
 		pooledObjects = new List<GameObject> ();
 
 		for (int i = 0; i < pooledAmount; i++) 
 		{
 			GameObject obj = (GameObject)Instantiate (pooledObject);
+			obj.transform.SetParent (gameObject.transform);
 			obj.SetActive (false);
 			pooledObjects.Add (obj);
 		}
@@ -32,7 +32,6 @@ public class ObjectPooler : MonoBehaviour {
 				return pooledObjects[i];
 			}
 		}
-
 		GameObject obj = (GameObject)Instantiate (pooledObject);
 		obj.SetActive (false);
 		pooledObjects.Add (obj);

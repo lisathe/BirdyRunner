@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cherry : SpawnableGameObject {
+public class PickUp : SpawnableGameObject {
 		
 
 	public override void OnTriggerEnter2D(Collider2D col)

@@ -27,7 +27,7 @@ public class SpawnableGameObject : MonoBehaviour {
 
 	protected void DisableGameObject()
 	{
-				if (transform.position.x < deletePoint.transform.position.x)
+		if (transform.position.x < deletePoint.transform.position.x)
 		{
 			gameObject.SetActive (false);
 		}
