@@ -9,7 +9,6 @@ public class ParticleSystemController : MonoBehaviour {
 	public void spawnParticleSystem(GameObject placeToBeSpawned)
 	{
 		Instantiate (particle, placeToBeSpawned.transform.position, placeToBeSpawned.transform.rotation);
-		//Destroy (gameObject, 1f);
-		Debug.Log("ps spawned");
+		//Destroy (gameObject, 1f); if there are multiple particle effects
 	}
 }
