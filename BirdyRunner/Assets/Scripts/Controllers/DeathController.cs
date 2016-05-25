@@ -11,11 +11,16 @@ public class DeathController : MonoBehaviour {
 	public Canvas scoreScreen;
 	public Text endScore;
 
+	GameObject player;
+	ParticleSystemController explosion;
+
 	void Awake()
 	{
 		scoreScreen = scoreScreen.GetComponent<Canvas> ();
 		gameOverScreen = gameOverScreen.GetComponent<Canvas> ();
 		gameOverScreen.enabled = false;
+		player = GameObject.FindWithTag ("Player");
+		explosion = player.GetComponent<ParticleSystemController> ();
 	}
 
 	public static DeathController instance
@@ -28,6 +33,12 @@ public class DeathController : MonoBehaviour {
 		}
 	}
 
+	public void PlayerDeath()
+	{
+		explosion.spawnParticleSystem (player);
+		player.SetActive (false);
+
+	}
 	public void DisplayGameOverScreen()
 	{
 		scoreScreen.enabled = false;

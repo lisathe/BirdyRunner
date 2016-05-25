@@ -7,6 +7,7 @@ public class Obstacle : SpawnableGameObject {
 	{
 		if (col.CompareTag ("Player"))
 		{
+			DeathController.instance.PlayerDeath ();
 			DeathController.instance.DisplayGameOverScreen ();
 		}
 		base.OnTriggerEnter2D (col);
