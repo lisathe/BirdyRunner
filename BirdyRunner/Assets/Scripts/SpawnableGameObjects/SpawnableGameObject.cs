@@ -7,8 +7,9 @@ public class SpawnableGameObject : MonoBehaviour {
 	protected Vector2 direction;
 	protected Rigidbody2D rb;
 	protected GameObject deletePoint;
+	protected AudioClip collisionSound;
 
-	protected void Awake () 
+	public virtual void Awake () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		direction = new Vector2 (-1, 0); // Moving to the left
@@ -38,6 +39,7 @@ public class SpawnableGameObject : MonoBehaviour {
 		if (col.CompareTag ("Player"))
 		{
 			gameObject.SetActive (false);
+			AudioSource.PlayClipAtPoint (collisionSound, transform.position);
 		}
 	}
 }
