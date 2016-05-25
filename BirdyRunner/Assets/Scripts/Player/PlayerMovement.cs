@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.Space))
 		{
-			rb.velocity = new Vector2 (rb.velocity.x, jumpForce * Time.deltaTime);
+			// negative jumpforce so the player jumps down
+			rb.velocity = new Vector2 (rb.velocity.x, -jumpForce * Time.deltaTime);
 		}
 			
 	}
