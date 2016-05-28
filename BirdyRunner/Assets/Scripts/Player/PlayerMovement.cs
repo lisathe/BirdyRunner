@@ -3,29 +3,33 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	private Rigidbody2D rb;
 	public float jumpForce;
 
-	// Use this for initialization
+	Rigidbody2D rb;
+	bool spacePressed;
+
 	void Awake () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		Jump ();
+		spacePressed = false;
 	}
 
-	private void Jump()
+	void FixedUpdate () 
 	{
-		if (Input.GetKeyDown (KeyCode.Space))
+		if (spacePressed) 
 		{
-			// negative jumpforce so the player jumps down
-			rb.velocity = new Vector2 (rb.velocity.x, -jumpForce * Time.deltaTime);
+			Jump ();
 		}
+	}
+
+	void Update()
+	{
+		spacePressed = Input.GetKeyDown (KeyCode.Space);
 			
 	}
-
+	void Jump()
+	{
+		// negative jumpforce so the player jumps down
+		rb.AddForce (new Vector2 (rb.velocity.x, -jumpForce));
+	}
 }
