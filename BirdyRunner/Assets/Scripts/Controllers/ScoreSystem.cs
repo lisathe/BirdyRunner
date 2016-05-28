@@ -6,7 +6,6 @@ public class ScoreSystem : MonoBehaviour {
 
 	public Text scoreText;
 
-
 	int totalPoints;
 	int points;
 	static ScoreSystem _instance;
